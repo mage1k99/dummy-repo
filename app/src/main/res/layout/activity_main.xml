@@ -32,16 +32,16 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimary"
         android:src="@drawable/ic_spa_black_24dp"
-        app:layout_anchor="@id/bottom_navigation_android"
+        app:layout_anchor="@id/bottom_navigation_android_main"
         app:rippleColor="#fff" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottom_navigation_android"
+        android:id="@+id/bottom_navigation_android_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:fabAlignmentMode="end"
         app:layout_insetEdge="end"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu_main" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

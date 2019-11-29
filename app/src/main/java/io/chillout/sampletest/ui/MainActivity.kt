@@ -15,7 +15,6 @@ import io.chillout.sampletest.data.timeApi
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.Thread.sleep
 
 class MainActivity : AppCompatActivity() {
     val TimeApi by lazy {
@@ -24,14 +23,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(bottom_navigation_android)
+        setSupportActionBar(bottom_navigation_android_main)
         invisble_text.setText("text changed yo")
-
+        fab.setOnClickListener {
+            startActivity(Intent(this,ActivityFragment::class.java))
+        }
 
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.bottom_nav_menu,menu)
+        menuInflater.inflate(R.menu.bottom_nav_menu_main,menu)
         return true
     }
 
