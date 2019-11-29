@@ -1,5 +1,6 @@
 package io.chillout.sampletest.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,13 +10,12 @@ import android.view.View
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import io.chillout.sampletest.R
+import io.chillout.sampletest.data.dataTimedate
 import io.chillout.sampletest.data.timeApi
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.Thread.sleep
 
 class MainActivity : AppCompatActivity() {
     val TimeApi by lazy {
@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                 Snackbar.make(coodinatorlayout,"This is a snackbar",Snackbar.LENGTH_SHORT).setAction("Ok bitch"){
                     sucker()
                 }.show()
+
             }
             R.id.about_us_bottom ->{
                 Log.d("yoyo","Bitch")
@@ -49,16 +50,26 @@ class MainActivity : AppCompatActivity() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
-                        { result -> invisble_text.text = "${result.datetime} is date result found \n ${result.clientIp} is client IP" },
+                        { result -> getResult(result) },
                         { error -> Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show() }
                     )
+            }
+            R.id.timer_bottom ->{
+                startActivity(Intent(this,TimerActivity::class.java))
             }
         }
         return true
     }
     fun sucker(){
         Toast.makeText(applicationContext,"yo listen up u pressed OK bitch",Toast.LENGTH_SHORT).show()
+        // create a intent here
     }
+    fun getResult(result: dataTimedate.timedata) {
+        val date = result.datetime.substring(0,result.datetime.indexOf("T"))
+        val time = result.datetime.substring(result.datetime.indexOf("T")+1,result.datetime.indexOf("+"))
+        invisble_text.text = "$date is date result found \n $time is time \n ip is ${result.clientIp}"
+    }
+
 
     fun visbletext(view: View) {
         invisble_text.visibility = View.VISIBLE

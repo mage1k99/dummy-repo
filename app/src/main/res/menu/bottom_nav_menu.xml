@@ -12,4 +12,9 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_album_black_24dp"
         />
+    <item android:id="@+id/timer_bottom"
+        android:title="Timer"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_timer_black_24dp"
+        />
 </menu>
