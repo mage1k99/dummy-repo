@@ -6,15 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 
 import io.chillout.sampletest.R
+import io.chillout.sampletest.models.UserViewModel
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import java.util.*
 
 class homeFragment : Fragment() {
 
     lateinit var globalview:View
+    lateinit var userViewModel: UserViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,6 +31,7 @@ class homeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
         view.login_button.setOnClickListener {
             val username:String = view.username_edittext.text.toString()
             val password:String = view.password_edittext.text.toString()

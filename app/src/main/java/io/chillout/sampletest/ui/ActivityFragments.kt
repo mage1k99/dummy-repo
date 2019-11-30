@@ -13,6 +13,7 @@ class ActivityFragments : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragments)
         setSupportActionBar(toolbar)
+        toolbar.title = "Fragments Demo boi"
         val navController = Navigation.findNavController(this,R.id.fragment_container_host)
         bottomNav.let {
             NavigationUI.setupWithNavController(it,navController)
