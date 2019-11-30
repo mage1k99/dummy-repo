@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(bottom_navigation_android_main)
         invisble_text.setText("text changed yo")
         fab.setOnClickListener {
-            startActivity(Intent(this,ActivityFragment::class.java))
+            startActivity(Intent(this,ActivityFragments::class.java))
         }
 
     }

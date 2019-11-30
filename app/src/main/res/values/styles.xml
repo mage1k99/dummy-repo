@@ -6,5 +6,15 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="AppThemeX" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorAccent">#FF3D00</item>
+        <item name="colorPrimary">#D500F9</item>
+        <item name="colorPrimaryDark">#8E24AA</item>
+    </style>
+
+    <style name="Toolbartheme" parent="ThemeOverlay.MaterialComponents.ActionBar">
+        <item name="android:textColorPrimary">#fff</item>
+
+    </style>
 
 </resources>
